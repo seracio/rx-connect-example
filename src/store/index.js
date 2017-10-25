@@ -1,6 +1,4 @@
 // @flow
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
+import { of } from 'rxjs/observable/of';
 
-export const hello$ = Observable.of('world');
+export const hello$ = of('world');

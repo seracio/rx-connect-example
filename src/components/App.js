@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from '@seracio/rx-connect';
 import styled from 'styled-components';
+import { map } from 'rxjs/operators';
 
 const Container = styled.div`
     width: 100%;
@@ -14,12 +15,12 @@ type Props = {
 };
 
 const App = ({ hello }: Props) => {
-    return <Container>{hello}</Container>;
+    return <Container>Hello {hello}</Container>;
 };
 
 const combinator = state => {
     const { hello$ } = state;
-    return hello$.map(hello => ({ hello }));
+    return hello$.pipe(map(hello => ({ hello })));
 };
 
 export default connect(combinator)(App);
